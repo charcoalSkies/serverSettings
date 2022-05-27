@@ -27,17 +27,47 @@ rustc --version
 
 </br>
 
-python 3.9.x
+이전버전 파이썬 삭제 
+
+``` bash
+whereis python
+
+x.x
+
+sudo apt-get update
+
+rm -rf /usr/lib/pythonx.x
+
+rm -rf /etc/pythonx.x
+```
+
+</br>
+
+파이썬 설치 python x.x
 
 ``` bash
 sudo apt update
 
-sudo apt install software-properties-common
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
 
-# 저장소를 추가 한 후 Ubuntu 20.04에서는 사용 가능한 패키지 목록이 업데이트됩니다.. 저장소가 활성화되고 모든 것이 업데이트되면 다음 단계로 진행할 수 있습니다.
-sudo add-apt-repository ppa:deadsnakes/ppa
+wget https://www.python.org/ftp/python/3.9.13/Python-3.9.13.tgz
 
-sudo apt install python3.9
+tar -xf Python-3.9.13.tgz
 
-sudo apt update && sudo apt install python3-pip
+cd Python-3.9.13
+
+./configure --enable-optimizations
+
+make -j 12
+
+sudo make altinstall
+
+python3.9 -V
+
+pip3.9 -V
+
+/usr/local/bin/python3.9 -m pip install --upgrade pip
 ```
+
+
+
